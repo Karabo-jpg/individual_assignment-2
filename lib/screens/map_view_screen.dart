@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../providers/listing_provider.dart';
+import '../repositories/listing_repository.dart';
 import 'detail_screen.dart';
 
 class MapViewScreen extends ConsumerWidget {
@@ -35,7 +36,7 @@ class MapViewScreen extends ConsumerWidget {
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
             zoomControlsEnabled: true,
-            mapPadding: const EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),

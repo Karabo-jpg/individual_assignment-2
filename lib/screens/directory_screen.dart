@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/listing_provider.dart';
+import '../repositories/listing_repository.dart';
 import '../widgets/listing_card.dart';
 import 'detail_screen.dart';
 
