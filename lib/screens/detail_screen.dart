@@ -119,13 +119,13 @@ class DetailScreen extends StatelessWidget {
   }
 
   Future<void> _launchNavigation(double lat, double lng) async {
-    final url = 'google.navigation:q=$lat,$lng';
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    final geoUrl = Uri.parse('geo:$lat,$lng?q=$lat,$lng');
+    final webUrl = Uri.parse('https://www.google.com/maps/search/?api=1&query=$lat,$lng');
+
+    if (await canLaunchUrl(geoUrl)) {
+      await launchUrl(geoUrl);
     } else {
-      // Fallback for iOS/Web
-      final webUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
-      await launchUrl(Uri.parse(webUrl));
+      await launchUrl(webUrl, mode: LaunchMode.externalApplication);
     }
   }
 }
